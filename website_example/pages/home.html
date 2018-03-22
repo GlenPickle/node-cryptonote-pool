@@ -80,55 +80,33 @@
 
 
 <div id="siteInfo">
-    <!-- Description or information about this pool -->
+   XMR Mining lottery is a pool that is perfect for low hash rate devices. With other pools, payments are calculated based on the miner's hashrate and number of submitted shares. That works well for devices with high powered GPUs, but it leaves low hashrate devices unable to earn any Monero by mining. This pool issues payouts based on a lottery system, so that even low hashrate devices such as Android devices, laptops, and Raspberry Pis can potentially earn money by mining Monero. Every time this pool discovers a block, it will automatically pay out 1 XMR to as many randomly chosen miners as the block reward allows. For example, if the block reward is 5.1 XMR the pool will pay 1 XMR to 5 miners and keep the 0.1 XMR. At the time of this writing, most block rewards are between 5 and 5.1 XMR, so the pool will be keeping less than 2% of the Monero that is mined. If blocks rewards start to dip below 5 XMR, the payouts will be restructured so that the pool is not keeping large percentages of the block reward.
 </div>
+
+<hr>
 
 <div class="row">
     <div class="col-md-4 stats">
         <h3>Network</h3>
-        <div><i class="fa fa-tachometer"></i> Hash Rate: <span id="networkHashrate"></span></div>
-        <div><i class="fa fa-clock-o"></i> Block Found: <span id="networkLastBlockFound"></span></div>
+        <div><i class="fas fa-tachometer-alt"></i> Hash Rate: <span id="networkHashrate"></span></div>
+        <div><i class="fas fa-clock"></i> Block Found: <span id="networkLastBlockFound"></span></div>
         <div><i class="fa fa-unlock-alt"></i> Difficulty: <span id="networkDifficulty"></span></div>
         <div><i class="fa fa-bars"></i> Blockchain Height: <span id="blockchainHeight"></span></div>
-        <div><i class="fa fa-money"></i> Last Reward: <span id="networkLastReward"></span></div>
+        <div><i class="fas fa-money-bill-alt"></i> Last Reward: <span id="networkLastReward"></span></div>
         <div><i class="fa fa-paw"></i> Last Hash: <a id="lastHash" target="_blank"></a></div>
     </div>
 
     <div class="col-md-4 stats">
         <h3>Our Pool</h3>
-        <div><i class="fa fa-tachometer"></i> Hash Rate: <span id="poolHashrate"></span></div>
-        <div><i class="fa fa-clock-o"></i> Block Found: <span id="poolLastBlockFound"></span></div>
+        <div><i class="fas fa-tachometer-alt"></i> Hash Rate: <span id="poolHashrate"></span></div>
+        <div><i class="fas fa-clock"></i> Block Found: <span id="poolLastBlockFound"></span></div>
         <div><i class="fa fa-users"></i> Connected Miners: <span id="poolMiners"></span></div>
-        <div><i class="fa fa-history"></i> Block Found Every: <span id="blockSolvedTime"></span> (est.)</div>
     </div>
 
     <div class="col-md-4 stats">
         <h3 id="marketHeader">Market</h3>
         <div class="marketFooter">Updated: <span id="marketLastUpdated"></span></div>
         <div class="marketFooter">Powered by <a href="https://www.cryptonator.com/">Cryptonator</a></div>
-    </div>
-</div>
-
-<hr>
-
-<div id="miningProfitCalc">
-    <h3>Estimate Mining Profits</h3>
-    <div id="calcHashHolder">
-        <div class="input-group">
-            <input type="number" class="form-control" id="calcHashRate" placeholder="Enter Your Hash Rate">
-            <div class="input-group-btn">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" id="calcHashDropdown">
-                    <span id="calcHashUnit" data-mul="1">KH/s</span> <span class="caret"></span>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right" role="menu" id="calcHashUnits">
-                    <li><a href="#" data-mul="0">H/s</a></li>
-                    <li><a href="#" data-mul="1">KH/s</a></li>
-                    <li><a href="#" data-mul="2">MH/s</a></li>
-                </ul>
-            </div>
-            <span class="input-group-addon">=</span>
-            <span class="input-group-addon" id="calcHashResultsHolder"><span id="calcHashAmount"></span> <span id="calcHashSymbol"></span>/day</span>
-        </div>
     </div>
 </div>
 
@@ -147,12 +125,12 @@
 
     <div id="addressError"></div>
     <div class="yourStats"><i class="fa fa-key"></i> Address: <span id="yourAddressDisplay"></span></div>
-    <div class="yourStats"><i class="fa fa-bank"></i> Pending Balance: <span id="yourPendingBalance"></span></div>
-    <div class="yourStats"><i class="fa fa-money"></i> Total Paid: <span id="yourPaid"></span></div>
-    <div class="yourStats"><i class="fa fa-clock-o"></i> Last Share Submitted: <span id="yourLastShare"></span></div>
-    <div class="yourStats"><i class="fa fa-tachometer"></i> Hash Rate: <span id="yourHashrateHolder"></span></div>
-    <div class="yourStats"><i class="fa fa-cloud-upload"></i> Total Hashes Submitted: <span id="yourHashes"></span></div>
-
+    <div class="yourStats"><i class="fas fa-university"></i> Pending Balance: <span id="yourPendingBalance"></span></div>
+    <div class="yourStats"><i class="fas fa-money-bill-alt"></i> Total Paid: <span id="yourPaid"></span></div>
+    <div class="yourStats"><i class="fas fa-clock"></i> Last Share Submitted: <span id="yourLastShare"></span></div>
+    <div class="yourStats"><i class="fas fa-tachometer-alt"></i> Hash Rate: <span id="yourHashrateHolder"></span></div>
+    <div class="yourStats"><i class="fas fa-cloud-upload-alt"></i> Total Hashes Submitted: <span id="yourHashes"></span></div>
+    <font color="FF0000"><b>NOTE: Shares and hashes are for tracking purposes only, and are not used to calculate payouts. Payouts are awarded based on a random number generator</b></font>
     <br class="yourStats">
 
     <h4 class="yourStats">Payments</h4>
@@ -160,9 +138,9 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th><i class="fa fa-clock-o"></i> Time Sent</th>
+                <th><i class="fas fa-clock"></i> Time Sent</th>
                 <th><i class="fa fa-paw"></i> Transaction Hash</th>
-                <th><i class="fa fa-money"></i> Amount</th>
+                <th><i class="fas fa-money-bill-alt"></i> Amount</th>
                 <th><i class="fa fa-sitemap"></i> Mixin</th>
             </tr>
             </thead>
@@ -214,23 +192,6 @@
 
             //updateText('poolRoundHashes', lastStats.pool.roundHashes.toString());
             updateText('poolMiners', lastStats.pool.miners.toString());
-
-
-            var totalFee = lastStats.config.fee;
-            if (lastStats.config.doDonations){
-                totalFee += lastStats.config.donation;
-                totalFee += lastStats.config.coreDonation;
-                var feeText = [];
-                if (lastStats.config.donation > 0) feeText.push(lastStats.config.donation + '% to pool dev');
-                if (lastStats.config.coreDonation > 0) feeText.push(lastStats.config.coreDonation + '% to core devs');
-                updateText('poolDonations', feeText.join(', '));
-            }
-            else{
-                updateText('poolDonations', '');
-            }
-
-            updateText('poolFee', totalFee + '%');
-
 
             updateText('blockSolvedTime', getReadableTime(lastStats.network.difficulty / lastStats.pool.hashrate));
             updateText('calcHashSymbol', lastStats.config.symbol);
